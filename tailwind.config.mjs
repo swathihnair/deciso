@@ -19,18 +19,18 @@ export default {
         'gradient-main': 'linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%)',
         'gradient-dark': 'linear-gradient(135deg, #1a1a2e 0%, #3a2e4e 100%)',
         'gradient-darker': 'linear-gradient(135deg, #000000 0%, #0d1117 25%, #161b22 50%, #21262d 75%, #30363d 100%)',
-        
+
         // Card and component gradients
         'gradient-card': 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
         'gradient-hover': 'linear-gradient(145deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 100%)',
         'gradient-glass': 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-        
+
         // Accent gradients
         'gradient-accent': 'linear-gradient(135deg, #ff6b6b 0%, #ff8e53 25%, #ff6b9d 50%, #c44569 75%, #f8b500 100%)',
         'gradient-accent-alt': 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
         'gradient-rainbow': 'linear-gradient(135deg, #667eea 0%, #764ba2 16%, #f093fb 32%, #f5576c 48%, #4facfe 64%, #00f2fe 80%, #43e97b 100%)',
         'gradient-rainbow-dark': 'linear-gradient(135deg, #4c63d2 0%, #5a4b8c 16%, #d63384 32%, #dc3545 48%, #0dcaf0 64%, #20c997 80%, #198754 100%)',
-        
+
         // Specific color gradients
         'gradient-success': 'linear-gradient(135deg, #0d7377 0%, #2d9596 100%)',
         'gradient-success-alt': 'linear-gradient(135deg, #1e40af 0%, #3730a3 100%)',
@@ -38,20 +38,20 @@ export default {
         'gradient-warning-alt': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
         'gradient-error': 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
         'gradient-info': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-        
+
         // Financial gradients
         'gradient-financial': 'linear-gradient(135deg, #0d7377 0%, #2d9596 50%, #1e40af 100%)',
         'gradient-expense': 'linear-gradient(135deg, #dc2626 0%, #f59e0b 100%)',
         'gradient-income': 'linear-gradient(135deg, #059669 0%, #0d7377 100%)',
-        
+
         // Style gradients
         'gradient-style': 'linear-gradient(135deg, #dc2626 0%, #f59e0b 50%, #3b82f6 100%)',
         'gradient-fashion': 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 50%, #dc2626 100%)',
-        
+
         // Dashboard gradients
         'gradient-dashboard': 'linear-gradient(135deg, #3b82f6 0%, #7c3aed 25%, #dc2626 50%, #f59e0b 75%, #059669 100%)',
         'gradient-stats': 'linear-gradient(135deg, #0d7377 0%, #2d9596 25%, #1e40af 50%, #3730a3 75%, #3b82f6 100%)',
-        
+
         // Special effects
         'gradient-glow': 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(124, 58, 237, 0.15) 50%, transparent 100%)',
         'gradient-glow-strong': 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(124, 58, 237, 0.25) 50%, transparent 100%)',

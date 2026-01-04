@@ -14,7 +14,7 @@ import Header from '../components/Header.svelte';
           <p class="text-white/70 mt-2">Tell us about yourself to get tailored recommendations</p>
         </div>
         
-        <form class="space-y-6" action="/dashboard" method="get">
+        <form id="personalizeForm" class="space-y-6">
           <!-- Personal Information -->
           <div class="space-y-4">
             <h3 class="text-xl font-semibold text-white">Personal Information</h3>
@@ -183,6 +183,7 @@ import Header from '../components/Header.svelte';
           
           <button
             type="submit"
+            id="submitBtn"
             class="w-full bg-white text-indigo-600 py-3 px-4 rounded-md font-semibold hover:bg-gray-100 transition-colors"
           >
             Complete Setup & Go to Dashboard
@@ -192,3 +193,58 @@ import Header from '../components/Header.svelte';
     </div>
   </main>
 </Layout>
+
+<script>
+  document.getElementById('personalizeForm')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+    if (submitBtn) {
+      submitBtn.textContent = 'Saving...';
+      submitBtn.disabled = true;
+    }
+    
+    // Collect form data
+    const formData = {
+      age: parseInt((document.getElementById('age') as HTMLInputElement)?.value) || null,
+      occupation: (document.getElementById('occupation') as HTMLInputElement)?.value || null,
+      location: (document.getElementById('location') as HTMLInputElement)?.value || null,
+      monthlyIncome: parseFloat((document.getElementById('monthlyIncome') as HTMLInputElement)?.value) || null,
+      monthlyBudget: parseFloat((document.getElementById('monthlyBudget') as HTMLInputElement)?.value) || null,
+      financialGoals: (document.getElementById('financialGoals') as HTMLTextAreaElement)?.value || null,
+      styleType: (document.getElementById('styleType') as HTMLSelectElement)?.value || null,
+      favoriteColors: (document.getElementById('favoriteColors') as HTMLInputElement)?.value || null,
+      bodyType: (document.getElementById('bodyType') as HTMLSelectElement)?.value || null,
+      interests: Array.from(document.querySelectorAll<HTMLInputElement>('input[name="interests"]:checked')).map(cb => cb.value)
+    };
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        // Also store in localStorage for immediate access
+        localStorage.setItem('userProfile', JSON.stringify(formData));
+        window.location.href = '/dashboard#financial';
+      } else {
+        const error = await response.json();
+        alert('Error saving profile: ' + (error.error || 'Unknown error'));
+        if (submitBtn) {
+          submitBtn.textContent = 'Complete Setup & Go to Dashboard';
+          submitBtn.disabled = false;
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Still save to localStorage and redirect even if backend fails
+      localStorage.setItem('userProfile', JSON.stringify(formData));
+      window.location.href = '/dashboard#financial';
+    }
+  });
+</script>

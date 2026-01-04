@@ -14,7 +14,7 @@ import Header from '../components/Header.svelte';
           <p class="text-white/70 mt-2">Join Deciso today</p>
         </div>
         
-        <form class="space-y-6" action="/dashboard" method="get">
+        <form id="signupForm" class="space-y-6">
           <div>
             <label for="fullName" class="block text-sm font-medium text-white mb-2">
               Full Name
@@ -86,6 +86,7 @@ import Header from '../components/Header.svelte';
           
           <button
             type="submit"
+            id="submitBtn"
             class="w-full bg-white text-indigo-600 py-2 px-4 rounded-md font-semibold hover:bg-gray-100 transition-colors"
           >
             Create Account
@@ -104,3 +105,57 @@ import Header from '../components/Header.svelte';
     </div>
   </main>
 </Layout>
+
+<script>
+  document.getElementById('signupForm')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+    const password = (document.getElementById('password') as HTMLInputElement)?.value;
+    const confirmPassword = (document.getElementById('confirmPassword') as HTMLInputElement)?.value;
+    
+    // Validate passwords match
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+    
+    if (submitBtn) {
+      submitBtn.textContent = 'Creating Account...';
+      submitBtn.disabled = true;
+    }
+    
+    const formData = {
+      fullName: (document.getElementById('fullName') as HTMLInputElement)?.value,
+      email: (document.getElementById('email') as HTMLInputElement)?.value,
+      password: password
+    };
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        // Redirect to personalize page after successful registration
+        window.location.href = '/personalize';
+      } else {
+        const error = await response.json();
+        alert('Error creating account: ' + (error.error || 'Unknown error'));
+        if (submitBtn) {
+          submitBtn.textContent = 'Create Account';
+          submitBtn.disabled = false;
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Still redirect to personalize even if backend fails (for demo purposes)
+      window.location.href = '/personalize';
+    }
+  });
+</script>

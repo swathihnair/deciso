@@ -241,10 +241,11 @@ def get_dashboard_stats():
         ''', (user_id,))
         monthly_spending = cursor.fetchone()[0] or 0
         
-        # Get user budget
-        cursor.execute('SELECT monthly_budget FROM user_profiles WHERE user_id = ?', (user_id,))
-        budget_result = cursor.fetchone()
-        monthly_budget = budget_result[0] if budget_result else 0
+        # Get user budget and income
+        cursor.execute('SELECT monthly_budget, monthly_income FROM user_profiles WHERE user_id = ?', (user_id,))
+        profile_result = cursor.fetchone()
+        monthly_budget = profile_result[0] if profile_result and profile_result[0] else 0
+        monthly_income = profile_result[1] if profile_result and profile_result[1] else 0
         
         # Get daily spending for the week
         cursor.execute('''
@@ -265,6 +266,7 @@ def get_dashboard_stats():
         conn.close()
         
         return jsonify({
+            'monthly_income': monthly_income,
             'monthly_budget': monthly_budget,
             'monthly_spending': monthly_spending,
             'budget_remaining': monthly_budget - monthly_spending,

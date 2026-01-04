@@ -13,7 +13,7 @@
 <aside class="w-72 bg-gradient-glass backdrop-blur-md border-r border-white/30 min-h-screen shadow-glow relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-mesh before:opacity-20">
   <!-- Logo Section -->
   <div class="p-6 border-b border-white/20">
-    <div class="flex items-center group">
+    <a href="/" class="flex items-center group cursor-pointer">
       <div class="w-12 h-12 bg-gradient-aurora rounded-2xl mr-4 flex items-center justify-center text-2xl group-hover:animate-bounce-slow shadow-aurora relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-shimmer before:opacity-0 hover:before:opacity-50 before:transition-opacity">
         <span class="group-hover:animate-wiggle relative z-10">🎯</span>
       </div>
@@ -24,7 +24,7 @@
         </h2>
         <p class="text-white/70 text-sm">Your Smart Assistant</p>
       </div>
-    </div>
+    </a>
   </div>
   
   <!-- Navigation -->
