@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.svelte';
+import MainDashboard from '../components/MainDashboard.svelte';
+import FinancialDashboard from '../components/FinancialDashboard.svelte';
+import StyleAssistant from '../components/StyleAssistant.svelte';
+import Settings from '../components/Settings.svelte';
+---
+
+<Layout title="Dashboard - Deciso">
+  <div class="flex min-h-screen">
+    <Sidebar client:load />
+    
+    <main class="flex-1 p-6">
+      <div id="dashboard-content">
+        <MainDashboard client:load />
+      </div>
+      
+      <div id="financial-content" style="display: none;">
+        <FinancialDashboard client:load />
+      </div>
+      
+      <div id="style-content" style="display: none;">
+        <StyleAssistant client:load />
+      </div>
+      
+      <div id="goals-content" style="display: none;">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-bold text-white">Goals & Planning</h2>
+          <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-center">
+            <div class="text-6xl mb-4">🎯</div>
+            <h3 class="text-xl font-semibold text-white mb-2">Goals & Planning</h3>
+            <p class="text-white/70">Set and track your personal and financial goals. Coming soon!</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="settings-content" style="display: none;">
+        <Settings client:load />
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<script>
+  // Handle sidebar navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('aside');
+    const contentSections = {
+      'dashboard': document.getElementById('dashboard-content'),
+      'financial': document.getElementById('financial-content'),
+      'style': document.getElementById('style-content'),
+      'goals': document.getElementById('goals-content'),
+      'settings': document.getElementById('settings-content')
+    };
+    
+    function showSection(sectionId) {
+      // Hide all sections
+      Object.values(contentSections).forEach(section => {
+        if (section) section.style.display = 'none';
+      });
+      
+      // Show selected section
+      if (contentSections[sectionId]) {
+        contentSections[sectionId].style.display = 'block';
+      }
+    }
+    
+    // Add click listeners to sidebar buttons
+    if (sidebar) {
+      sidebar.addEventListener('click', function(e) {
+        const target = e.target as HTMLElement;
+        const button = target?.closest('button');
+        if (button) {
+          const sectionId = button.textContent.toLowerCase().includes('dashboard') ? 'dashboard' :
+                           button.textContent.toLowerCase().includes('financial') ? 'financial' :
+                           button.textContent.toLowerCase().includes('style') ? 'style' :
+                           button.textContent.toLowerCase().includes('goals') ? 'goals' :
+                           button.textContent.toLowerCase().includes('settings') ? 'settings' : 'dashboard';
+          
+          showSection(sectionId);
+        }
+      });
+    }
+  });
+</script>

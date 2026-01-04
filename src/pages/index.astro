@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.svelte';
+---
+
+<Layout title="Deciso - Your Personal Assistant">
+  <Header client:load />
+  
+  <main class="min-h-screen relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-aurora rounded-full blur-3xl animate-float opacity-60"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-mesh rounded-full blur-3xl animate-float-delayed opacity-50"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-glow-strong rounded-full blur-3xl animate-pulse-glow opacity-40"></div>
+      <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-neon rounded-full blur-2xl animate-float opacity-30" style="animation-delay: -1s;"></div>
+      <div class="absolute bottom-40 right-40 w-48 h-48 bg-gradient-aurora rounded-full blur-2xl animate-morph opacity-40" style="animation-delay: -4s;"></div>
+      <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-gradient-glow rounded-full blur-xl animate-wiggle opacity-50" style="animation-delay: -2s;"></div>
+      <div class="absolute bottom-1/3 left-1/4 w-36 h-36 bg-gradient-shimmer rounded-full blur-2xl animate-rotate-slow opacity-30"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="animate-fade-in">
+          <h1 class="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Make Better
+            <span class="block text-cyan-300 animate-pulse-slow">
+              Decisions
+            </span>
+            <span class="text-5xl md:text-6xl">Every Day ✨</span>
+          </h1>
+        </div>
+        
+        <div class="animate-slide-up" style="animation-delay: 0.2s;">
+          <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Your AI-powered personal assistant for 
+            <span class="text-yellow-300 font-semibold">financial planning</span>, 
+            <span class="text-pink-300 font-semibold">style choices</span>, and 
+            <span class="text-cyan-300 font-semibold">life decisions</span>. 
+            Get tailored recommendations that actually work.
+          </p>
+        </div>
+        
+        <div class="animate-slide-up flex flex-col sm:flex-row gap-6 justify-center" style="animation-delay: 0.4s;">
+          <a 
+            href="/signup" 
+            class="group relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-neon overflow-hidden before:absolute before:inset-0 before:bg-gradient-shimmer before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+          >
+            <span class="relative z-10 flex items-center">
+              Get Started Free 
+              <span class="ml-2 animate-bounce-slow">🚀</span>
+            </span>
+          </a>
+          <a 
+            href="#features" 
+            class="group relative border-2 border-white/40 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gradient-card hover:border-white/60 hover:shadow-aurora transition-all duration-300 transform hover:scale-105 backdrop-blur-sm overflow-hidden before:absolute before:inset-0 before:bg-gradient-aurora before:opacity-0 hover:before:opacity-20 before:transition-opacity"
+          >
+            <span class="relative z-10 flex items-center">
+              Learn More 
+              <span class="ml-2 group-hover:animate-wiggle">📖</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 animate-fade-in">
+          <h2 class="text-5xl font-bold text-white mb-4">
+            Everything You Need to 
+            <span class="text-cyan-300">Decide Better</span>
+          </h2>
+          <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Powerful tools designed to make your daily decisions effortless and smart
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="group bg-gradient-glass backdrop-blur-md p-8 rounded-3xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-500 transform hover:scale-105 hover:shadow-glow-success animate-slide-up relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-financial before:opacity-0 hover:before:opacity-10 before:transition-opacity">
+            <div class="w-16 h-16 bg-gradient-financial rounded-2xl mb-6 flex items-center justify-center text-3xl group-hover:animate-bounce-slow shadow-glow-success relative z-10">
+              <span class="group-hover:animate-wiggle">💰</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 relative z-10">Financial Assistant</h3>
+            <p class="text-white/90 leading-relaxed mb-6 relative z-10">
+              Smart budget tracking, expense insights, and personalized financial recommendations with beautiful real-time analytics.
+            </p>
+            <div class="flex items-center text-teal-300 font-semibold group-hover:text-teal-200 transition-colors relative z-10">
+              <span>Explore Features</span>
+              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="group bg-gradient-glass backdrop-blur-md p-8 rounded-3xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-500 transform hover:scale-105 hover:shadow-glow-warning animate-slide-up relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-style before:opacity-0 hover:before:opacity-10 before:transition-opacity" style="animation-delay: 0.1s;">
+            <div class="w-16 h-16 bg-gradient-style rounded-2xl mb-6 flex items-center justify-center text-3xl group-hover:animate-bounce-slow shadow-glow-warning relative z-10">
+              <span class="group-hover:animate-wiggle">👗</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 relative z-10">Style Assistant</h3>
+            <p class="text-white/90 leading-relaxed mb-6 relative z-10">
+              AI-powered outfit recommendations for any occasion - from job interviews to festivals, perfectly tailored to your unique style.
+            </p>
+            <div class="flex items-center text-red-300 font-semibold group-hover:text-red-200 transition-colors relative z-10">
+              <span>Discover Styles</span>
+              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="group bg-gradient-glass backdrop-blur-md p-8 rounded-3xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-500 transform hover:scale-105 hover:shadow-glow animate-slide-up relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-dashboard before:opacity-0 hover:before:opacity-10 before:transition-opacity" style="animation-delay: 0.2s;">
+            <div class="w-16 h-16 bg-gradient-dashboard rounded-2xl mb-6 flex items-center justify-center text-3xl group-hover:animate-bounce-slow shadow-glow relative z-10">
+              <span class="group-hover:animate-wiggle">🎯</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 relative z-10">Smart Dashboard</h3>
+            <p class="text-white/90 leading-relaxed mb-6 relative z-10">
+              A beautiful, personalized command center that adapts to your preferences and helps you stay organized and focused.
+            </p>
+            <div class="flex items-center text-blue-300 font-semibold group-hover:text-blue-200 transition-colors relative z-10">
+              <span>View Dashboard</span>
+              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="relative py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-gradient-glass backdrop-blur-md p-8 rounded-3xl border border-white/30 shadow-glow">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="animate-scale-in">
+              <div class="text-4xl font-bold text-cyan-300 mb-2">10K+</div>
+              <div class="text-white/80">Happy Users</div>
+            </div>
+            <div class="animate-scale-in" style="animation-delay: 0.1s;">
+              <div class="text-4xl font-bold text-green-400 mb-2">$2M+</div>
+              <div class="text-white/80">Money Saved</div>
+            </div>
+            <div class="animate-scale-in" style="animation-delay: 0.2s;">
+              <div class="text-4xl font-bold text-purple-400 mb-2">50K+</div>
+              <div class="text-white/80">Decisions Made</div>
+            </div>
+            <div class="animate-scale-in" style="animation-delay: 0.3s;">
+              <div class="text-4xl font-bold text-yellow-400 mb-2">98%</div>
+              <div class="text-white/80">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="relative py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            What Our Users Say 💬
+          </h2>
+          <p class="text-xl text-white/80">Real stories from real people making better decisions</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="group bg-gradient-glass backdrop-blur-md p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-300 transform hover:scale-105 animate-slide-up">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <p class="text-white/95 mb-6 italic leading-relaxed">
+              "Deciso completely transformed how I manage my finances. The insights are incredible and I've saved over $3000 this year!"
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-gradient-financial rounded-full mr-4 flex items-center justify-center text-xl shadow-glow-success">👩‍💼</div>
+              <div>
+                <p class="text-white font-bold">Sarah Johnson</p>
+                <p class="text-white/70 text-sm">Marketing Manager</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="group bg-gradient-glass backdrop-blur-md p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <p class="text-white/95 mb-6 italic leading-relaxed">
+              "The style recommendations are spot-on! I never have to worry about what to wear anymore. It's like having a personal stylist."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-gradient-style rounded-full mr-4 flex items-center justify-center text-xl shadow-glow-warning">👨‍💻</div>
+              <div>
+                <p class="text-white font-bold">Mike Chen</p>
+                <p class="text-white/70 text-sm">Software Developer</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="group bg-gradient-glass backdrop-blur-md p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-gradient-hover transition-all duration-300 transform hover:scale-105 animate-slide-up md:col-span-2 lg:col-span-1" style="animation-delay: 0.2s;">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <p class="text-white/95 mb-6 italic leading-relaxed">
+              "This app changed my life! Better decisions, better style, better finances. It's everything I needed in one place."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-gradient-dashboard rounded-full mr-4 flex items-center justify-center text-xl shadow-glow">👩‍🎨</div>
+              <div>
+                <p class="text-white font-bold">Emma Davis</p>
+                <p class="text-white/70 text-sm">Creative Director</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="bg-gradient-glass backdrop-blur-md p-12 rounded-3xl border border-white/30 shadow-glow-strong">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Make Better Decisions? 
+            <span class="text-yellow-400">🎉</span>
+          </h2>
+          <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Join thousands of users who are already living smarter, more organized lives with Deciso.
+          </p>
+          <a 
+            href="/signup" 
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-bold text-xl hover:shadow-glow-strong transition-all duration-300 transform hover:scale-105"
+          >
+            Start Your Journey Today 🚀
+          </a>
+          <p class="text-white/70 text-sm mt-4">No credit card required • Free forever plan available</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
