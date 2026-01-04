@@ -1,6 +1,6 @@
 <script>
   let currentTime = new Date().toLocaleTimeString();
-  let userName = "John";
+  let userName = "Swathi";
   
   // Update time every second
   setInterval(() => {
@@ -8,17 +8,17 @@
   }, 1000);
   
   const quickStats = [
-    { label: 'Budget Remaining', value: '$800', color: 'from-green-400 to-emerald-500', icon: '💰', trend: '+12%' },
+    { label: 'Budget Remaining', value: '₹800', color: 'from-green-400 to-emerald-500', icon: '💰', trend: '+12%' },
     { label: 'Outfits Planned', value: '5', color: 'from-pink-400 to-rose-500', icon: '👗', trend: '+2' },
     { label: 'Goals Completed', value: '3/7', color: 'from-yellow-400 to-orange-500', icon: '🎯', trend: '43%' },
     { label: 'Decisions Made', value: '12', color: 'from-indigo-400 to-purple-500', icon: '✅', trend: '+8' }
   ];
   
   const recentActivities = [
-    { action: 'Added expense: Lunch at Cafe Luna', time: '2 hours ago', type: 'financial', amount: '$24.50' },
+    { action: 'Added expense: Lunch at Cafe Luna', time: '2 hours ago', type: 'financial', amount: '₹24.50' },
     { action: 'Saved outfit for Friday interview', time: '4 hours ago', type: 'style', amount: null },
     { action: 'Completed goal: Morning workout', time: '1 day ago', type: 'goal', amount: null },
-    { action: 'Updated budget for groceries', time: '2 days ago', type: 'financial', amount: '$150' }
+    { action: 'Updated budget for groceries', time: '2 days ago', type: 'financial', amount: '₹150' }
   ];
   
   const upcomingTasks = [
@@ -82,7 +82,10 @@
           <span class="text-3xl mr-3">📈</span>
           Recent Activities
         </h2>
-        <button class="text-white/60 hover:text-white transition-colors text-sm font-medium">
+        <button 
+          onclick="window.location.href='/dashboard#activities'"
+          class="text-white/60 hover:text-white transition-colors text-sm font-medium"
+        >
           View All
         </button>
       </div>
@@ -135,7 +138,8 @@
         {/each}
       </div>
       
-      <button
+      <button 
+        onclick="window.location.href='/dashboard#tasks'"
         class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105"
       >
         View All Tasks
@@ -150,22 +154,34 @@
       Quick Actions
     </h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <button class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center">
+      <button 
+        onclick="window.location.href='/dashboard#financial'"
+        class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center"
+      >
         <div class="text-4xl mb-3 group-hover:animate-bounce-slow">💰</div>
         <p class="text-white text-sm font-semibold">Add Expense</p>
       </button>
       
-      <button class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center">
+      <button 
+        onclick="window.location.href='/dashboard#style'"
+        class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center"
+      >
         <div class="text-4xl mb-3 group-hover:animate-bounce-slow">👗</div>
         <p class="text-white text-sm font-semibold">Plan Outfit</p>
       </button>
       
-      <button class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center">
+      <button 
+        onclick="window.location.href='/dashboard#goals'"
+        class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center"
+      >
         <div class="text-4xl mb-3 group-hover:animate-bounce-slow">🎯</div>
         <p class="text-white text-sm font-semibold">Set Goal</p>
       </button>
       
-      <button class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center">
+      <button 
+        onclick="window.location.href='/dashboard#settings'"
+        class="group p-6 bg-gray-800 hover:bg-gray-700 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-glow transform hover:scale-105 text-center"
+      >
         <div class="text-4xl mb-3 group-hover:animate-bounce-slow">📊</div>
         <p class="text-white text-sm font-semibold">View Reports</p>
       </button>

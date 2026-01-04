@@ -37,7 +37,7 @@
         <input
           type="text"
           id="fullName"
-          value="John Doe"
+          value="Swathi"
           class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
         />
       </div>
@@ -47,7 +47,7 @@
         <input
           type="email"
           id="email"
-          value="john.doe@example.com"
+          value="swathi@example.com"
           class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50"
         />
       </div>

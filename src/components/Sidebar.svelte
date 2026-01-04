@@ -79,7 +79,7 @@
           <span class="animate-wiggle relative z-10">👤</span>
         </div>
         <div class="flex-1">
-          <p class="text-white font-semibold">John Doe</p>
+          <p class="text-white font-semibold">Swathi</p>
           <div class="flex items-center">
             <span class="text-yellow-400 text-xs mr-1 animate-pulse-slow">⭐</span>
             <p class="text-white/70 text-xs">Premium Member</p>
